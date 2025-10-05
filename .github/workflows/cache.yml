@@ -14,6 +14,7 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
+      # 🪣 Step: cache dependencies
       - name: prime-cache-47e4e4c
         id: cache
         uses: actions/cache@v4
@@ -21,9 +22,6 @@ jobs:
           path: ~/.cache/pip
           key: cache-47e4e4c
 
-      - name: Check cache result
-        run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
-
-      - name: Install dependencies
-        run: |
-          pip install numpy
+      # 🧠 Step: echo cache result (hit or miss)
+      - name: Echo cache result
+        run: echo "Cache hit:${{ steps.cache.outputs.cache-hit }}"
