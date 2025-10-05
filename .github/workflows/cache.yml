@@ -14,19 +14,16 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v4
 
-      # 🪣 Step 1: Setup cache
       - name: prime-cache-47e4e4c
         id: cache
         uses: actions/cache@v4
         with:
-          path: ~/.cache/pip   # change this if you're using Node, Maven, etc.
+          path: ~/.cache/pip
           key: cache-47e4e4c
 
-      # 🧠 Step 2: Echo cache result (hit/miss)
       - name: Check cache result
         run: echo "Cache hit: ${{ steps.cache.outputs.cache-hit }}"
 
-      # 🧱 Step 3: Install dependencies (for example)
       - name: Install dependencies
         run: |
           pip install numpy
